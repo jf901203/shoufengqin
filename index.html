@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+   *{
+    margin:0;
+    padding:0;
+    list-style: none;
+
+   }
+   #demo{
+    width: 300px;
+    margin:auto;
+   }
+   #list > li{
+     text-align: center;
+   }
+   .content {
+      font-size: 15px;
+      color: #35c628;
+      text-align: center;
+      display: none;
+    }
+    .content li{
+      height:35px;
+      background:#292929;
+ 
+    }
+    label{
+      background:#292929;
+      width:100%;
+      display:block;
+      height:35px;
+      border-bottom: 1px solid #660066;
+      position: relative;
+      color:#fff;
+    }
+    label::after{
+      content:'+';
+      position:absolute;
+      right:10px;
+      color:#fff;
+      display:inline-block;
+      width:10px;
+      height:10px;
+    }
+    label.selected::after{
+      content:'-';
+      position:absolute;
+      right:10px;
+      color:#fff;
+      display:inline-block;
+      width:10px;
+      height:10px;
+    }
+  </style>
+  <script type="text/javascript" src="./jquery.min.js"></script>
+</head>
+<body>
+  
+  <div id="demo">
+    <ul id="list">
+      
+      <li>
+        <label for="">javascript</label>
+        <ul class="content">
+          <li>javascript</li>
+          <li>javascript</li>
+          <li>javascript</li>
+          <li>javascript</li>
+          <li>javascript</li>
+        </ul>
+      </li>
+      <li>
+        <label for="">jquery</label>
+       <ul class="content">
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+        </ul>
+
+      </li>
+      <li>
+      <label for="">css</label>
+      <ul class="content">
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+          <li>jquery</li>
+        </ul>
+
+      </li>
+      <li>
+        <label for="">boot</label>
+      <ul class="content">
+          <li>boot</li>
+          <li>boot</li>
+          <li>boot</li>
+          <li>boot</li>
+          <li>boot</li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+  
+  $(function () {
+    
+      $("label").on("click",function() {
+        $(this).toggleClass('selected').next('.content').slideToggle(500);
+        $(this).parent().siblings().find('.content').slideUp(500);
+        $(this).parent().siblings().find('label').removeClass('selected');
+      });
+    });
+
+
+</script>
